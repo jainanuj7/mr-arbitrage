@@ -11,7 +11,8 @@
       service.send = function (api, data, method) {
         var def = $q.defer();
         $http({
-          url: 'https://mr-arbitrage.herokuapp.com/'+api,
+          url: 'http://localhost:3000/'+api,
+          //url: 'https://mr-arbitrage.herokuapp.com/'+api,
           method: method,
           data: data,
         }).then(function (res) {
