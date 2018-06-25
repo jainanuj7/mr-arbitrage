@@ -2,5 +2,5 @@
 * text=auto
 client/assets/lib/* linguist-vendored
 node_modules/* linguist-vendored
-
+client/app/arbitrage/arbitrage.html linguist-vendored
 
