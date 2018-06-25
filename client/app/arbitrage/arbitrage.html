@@ -43,7 +43,7 @@
                   <img src="../../assets/img/btc.png"> Bitcoin (BTC) </td>
                 <td>{{zebpayBuyRates["BTC"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["BTC"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["BTC"] - zebpayBuyRates["BTC"])/zebpayBuyRates["BTC"] * 100 | number:2}} % </td>
               </tr>
               
               <tr>
@@ -52,7 +52,7 @@
                   <img src="../../assets/img/eth.png"> Ether (ETH) </td>
                 <td>{{zebpayBuyRates["ETH"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["ETH"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["ETH"] - zebpayBuyRates["BTC"])/zebpayBuyRates["ETH"] * 100 | number:2}} % </td>
               </tr>
               <tr>
                 <td>3</td>
@@ -60,7 +60,7 @@
                   <img src="../../assets/img/bch.png"> BitcoinCash (BCH) </td>
                 <td>{{zebpayBuyRates["BCH"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["BCC"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["BCC"] - zebpayBuyRates["BCH"])/zebpayBuyRates["BCH"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -69,7 +69,7 @@
                   <img src="../../assets/img/ltc.png"> Litecoin (LTC) </td>
                 <td>{{zebpayBuyRates["LTC"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["LTC"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["LTC"] - zebpayBuyRates["LTC"])/zebpayBuyRates["LTC"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -78,7 +78,7 @@
                   <img src="../../assets/img/xrp.png"> Ripple (XRP) </td>
                 <td>{{zebpayBuyRates["XRP"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["XRP"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["XRP"] - zebpayBuyRates["XRP"])/zebpayBuyRates["XRP"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -87,7 +87,7 @@
                   <img src="../../assets/img/eos.png"> EOS (EOS) </td>
                 <td>{{zebpayBuyRates["EOS"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["EOS"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["EOS"] - zebpayBuyRates["EOS"])/zebpayBuyRates["EOS"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -96,7 +96,7 @@
                   <img src="../../assets/img/omg.png"> OmiseGo (OMG) </td>
                 <td>{{zebpayBuyRates["OMG"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["OMG"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["OMG"] - zebpayBuyRates["OMG"])/zebpayBuyRates["OMG"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -105,7 +105,7 @@
                   <img src="../../assets/img/trx.png"> Tronix (TRX) </td>
                 <td>{{zebpayBuyRates["TRX"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["TRX"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["TRX"] - zebpayBuyRates["TRX"])/zebpayBuyRates["TRX"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -114,7 +114,7 @@
                   <img src="../../assets/img/gnt.png"> Golem (GNT) </td>
                 <td>{{zebpayBuyRates["GNT"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["GNT"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["GNT"] - zebpayBuyRates["GNT"])/zebpayBuyRates["GNT"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -123,7 +123,7 @@
                   <img src="../../assets/img/zrx.png"> 0xProtocol (ZRX) </td>
                 <td>{{zebpayBuyRates["ZRX"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["ZRX"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["ZRX"] - zebpayBuyRates["ZRX"])/zebpayBuyRates["ZRX"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -132,7 +132,7 @@
                   <img src="../../assets/img/rep.png"> Augur (REP) </td>
                 <td>{{zebpayBuyRates["REP"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["REP"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["REP"] - zebpayBuyRates["REP"])/zebpayBuyRates["REP"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -141,7 +141,7 @@
                   <img src="../../assets/img/knc.png"> Kyber Network (KNC) </td>
                 <td>{{zebpayBuyRates["KNC"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["KNC"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["KNC"] - zebpayBuyRates["KNC"])/zebpayBuyRates["KNC"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -150,7 +150,7 @@
                   <img src="../../assets/img/bat.png"> Basic Attention Token (BAT) </td>
                 <td>{{zebpayBuyRates["BAT"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["BAT"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["BAT"] - zebpayBuyRates["BAT"])/zebpayBuyRates["BAT"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -159,7 +159,7 @@
                   <img src="../../assets/img/ven.png"> VeChain (VEN) </td>
                 <td>{{zebpayBuyRates["VEN"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["VEN"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["VEN"] - zebpayBuyRates["VEN"])/zebpayBuyRates["VEN"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -168,16 +168,16 @@
                   <img src="../../assets/img/ae.png"> Aeternity (AE) </td>
                 <td>{{zebpayBuyRates["AE"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["AE"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["AE"] - zebpayBuyRates["AE"])/zebpayBuyRates["AE"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
                 <td>16</td>
                 <td>
                   <img src="../../assets/img/iost.png"> IOSToken (IOST) </td>
-                <td>{{zebpayBuyRates["VEN"] | number:2}} INR</td>
-                <td>{{binanceSellRatesINR["VEN"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{zebpayBuyRates["IOST"] | number:2}} INR</td>
+                <td>{{binanceSellRatesINR["IOST"] | number:2}} INR </td>
+                <td>{{(binanceSellRatesINR["IOST"] - zebpayBuyRates["IOST"])/zebpayBuyRates["IOST"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -186,7 +186,7 @@
                   <img src="../../assets/img/zil.png"> Zilliqa (ZIL) </td>
                 <td>{{zebpayBuyRates["ZIL"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["ZIL"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["ZIL"] - zebpayBuyRates["ZIL"])/zebpayBuyRates["ZIL"] * 100 | number:2}} % </td>
               </tr>
 
               <tr>
@@ -195,7 +195,7 @@
                   <img src="../../assets/img/cmt.png"> Cyber Miles (CMT) </td>
                 <td>{{zebpayBuyRates["CMT"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["CMT"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["CMT"] - zebpayBuyRates["CMT"])/zebpayBuyRates["CMT"] * 100 | number:2}} % </td>
               </tr>
 
 
@@ -205,7 +205,7 @@
                   <img src="../../assets/img/ncash.png"> NCash (NCASH) </td>
                 <td>{{zebpayBuyRates["NCASH"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["NCASH"] | number:2}} INR </td>
-                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                <td>{{(binanceSellRatesINR["NCASH"] - zebpayBuyRates["NCASH"])/zebpayBuyRates["NCASH"] * 100 | number:2}} % </td>
               </tr>
 
             </table>
@@ -232,7 +232,7 @@
                               <img src="../../assets/img/btc.png"> Bitcoin (BTC) </td>
                             <td>{{binanceBuyRatesINR["BTC"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["BTC"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["BTC"] - binanceBuyRatesINR["BTC"])/binanceBuyRatesINR["BTC"] * 100 | number:2}} % </td>
                           </tr>
                           
                           <tr>
@@ -241,7 +241,7 @@
                               <img src="../../assets/img/eth.png"> Ether (ETH) </td>
                             <td>{{binanceBuyRatesINR["ETH"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["ETH"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["ETH"] - binanceBuyRatesINR["ETH"])/binanceBuyRatesINR["ETH"] * 100 | number:2}} % </td>
                           </tr>
                           <tr>
                             <td>3</td>
@@ -249,7 +249,7 @@
                               <img src="../../assets/img/bch.png"> BitcoinCash (BCH) </td>
                             <td>{{binanceBuyRatesINR["BCC"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["BCH"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["BCH"] - binanceBuyRatesINR["BCC"])/binanceBuyRatesINR["BCC"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -258,7 +258,7 @@
                               <img src="../../assets/img/ltc.png"> Litecoin (LTC) </td>
                             <td>{{binanceBuyRatesINR["LTC"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["LTC"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["LTC"] - binanceBuyRatesINR["LTC"])/binanceBuyRatesINR["LTC"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -267,7 +267,7 @@
                               <img src="../../assets/img/xrp.png"> Ripple (XRP) </td>
                             <td>{{binanceBuyRatesINR["XRP"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["XRP"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["XRP"] - binanceBuyRatesINR["XRP"])/binanceBuyRatesINR["XRP"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -276,7 +276,7 @@
                               <img src="../../assets/img/eos.png"> EOS (EOS) </td>
                             <td>{{binanceBuyRatesINR["EOS"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["EOS"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["EOS"] - binanceBuyRatesINR["EOS"])/binanceBuyRatesINR["EOS"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -285,7 +285,7 @@
                               <img src="../../assets/img/omg.png"> OmiseGo (OMG) </td>
                             <td>{{binanceBuyRatesINR["OMG"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["OMG"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["OMG"] - binanceBuyRatesINR["OMG"])/binanceBuyRatesINR["OMG"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -294,7 +294,7 @@
                               <img src="../../assets/img/trx.png"> Tronix (TRX) </td>
                             <td>{{binanceBuyRatesINR["TRX"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["TRX"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["TRX"] - binanceBuyRatesINR["TRX"])/binanceBuyRatesINR["TRX"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -303,7 +303,7 @@
                               <img src="../../assets/img/gnt.png"> Golem (GNT) </td>
                             <td>{{binanceBuyRatesINR["GNT"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["GNT"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["GNT"] - binanceBuyRatesINR["GNT"])/binanceBuyRatesINR["GNT"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -312,7 +312,7 @@
                               <img src="../../assets/img/zrx.png"> 0xProtocol (ZRX) </td>
                             <td>{{binanceBuyRatesINR["ZRX"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["ZRX"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["ZRX"] - binanceBuyRatesINR["ZRX"])/binanceBuyRatesINR["ZRX"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -321,7 +321,7 @@
                               <img src="../../assets/img/rep.png"> Augur (REP) </td>
                             <td>{{binanceBuyRatesINR["REP"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["REP"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["REP"] - binanceBuyRatesINR["REP"])/binanceBuyRatesINR["REP"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -330,7 +330,7 @@
                               <img src="../../assets/img/knc.png"> Kyber Network (KNC) </td>
                             <td>{{binanceBuyRatesINR["KNC"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["KNC"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["KNC"] - binanceBuyRatesINR["KNC"])/binanceBuyRatesINR["KNC"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -339,7 +339,7 @@
                               <img src="../../assets/img/bat.png"> Basic Attention Token (BAT) </td>
                             <td>{{binanceBuyRatesINR["BAT"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["BAT"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["BAT"] - binanceBuyRatesINR["BAT"])/binanceBuyRatesINR["BAT"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -348,7 +348,7 @@
                               <img src="../../assets/img/ven.png"> VeChain (VEN) </td>
                             <td>{{binanceBuyRatesINR["VEN"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["VEN"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["VEN"] - binanceBuyRatesINR["VEN"])/binanceBuyRatesINR["VEN"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -357,16 +357,16 @@
                               <img src="../../assets/img/ae.png"> Aeternity (AE) </td>
                             <td>{{binanceBuyRatesINR["AE"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["AE"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["AE"] - binanceBuyRatesINR["AE"])/binanceBuyRatesINR["AE"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
                             <td>16</td>
                             <td>
                               <img src="../../assets/img/iost.png"> IOSToken (IOST) </td>
-                            <td>{{binanceBuyRatesINR["VEN"] | number:2}} INR</td>
-                            <td>{{zebpaySellRates["VEN"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{binanceBuyRatesINR["IOST"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["IOST"] | number:2}} INR </td>
+                            <td>{{(zebpaySellRates["IOST"] - binanceBuyRatesINR["IOST"])/binanceBuyRatesINR["IOST"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -375,7 +375,7 @@
                               <img src="../../assets/img/zil.png"> Zilliqa (ZIL) </td>
                             <td>{{binanceBuyRatesINR["ZIL"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["ZIL"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["BTC"] - binanceBuyRatesINR["BTC"])/binanceBuyRatesINR["BTC"] * 100 | number:2}} % </td>
                           </tr>
                 
                           <tr>
@@ -384,7 +384,7 @@
                               <img src="../../assets/img/cmt.png"> Cyber Miles (CMT) </td>
                             <td>{{binanceBuyRatesINR["CMT"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["CMT"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["CMT"] - binanceBuyRatesINR["CMT"])/binanceBuyRatesINR["CMT"] * 100 | number:2}} % </td>
                           </tr>
                 
                 
@@ -394,7 +394,7 @@
                               <img src="../../assets/img/ncash.png"> NCash (NCASH) </td>
                             <td>{{binanceBuyRatesINR["NCASH"] | number:2}} INR</td>
                             <td>{{zebpaySellRates["NCASH"] | number:2}} INR </td>
-                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                            <td>{{(zebpaySellRates["NCASH"] - binanceBuyRatesINR["NCASH"])/binanceBuyRatesINR["NCASH"] * 100 | number:2}} % </td>
                           </tr>
                 
                         </table>
