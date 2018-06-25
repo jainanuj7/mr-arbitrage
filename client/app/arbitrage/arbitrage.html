@@ -25,7 +25,7 @@
 <div ng-cloak>
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="one">
+      <md-tab label="Zebpay -> Binance">
         <md-content class="md-padding">
           <div>
             <table>
@@ -52,7 +52,7 @@
                   <img src="../../assets/img/eth.png"> Ether (ETH) </td>
                 <td>{{zebpayBuyRates["ETH"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["ETH"] | number:2}} INR </td>
-                <td>{{(binanceSellRatesINR["ETH"] - zebpayBuyRates["BTC"])/zebpayBuyRates["ETH"] * 100 | number:2}} % </td>
+                <td>{{(binanceSellRatesINR["ETH"] - zebpayBuyRates["ETH"])/zebpayBuyRates["ETH"] * 100 | number:2}} % </td>
               </tr>
               <tr>
                 <td>3</td>
@@ -214,7 +214,7 @@
 
         </md-content>
       </md-tab>
-      <md-tab label="two">
+      <md-tab label="Binance -> Zebpay">
         <md-content class="md-padding">
                 <div>
                         <table>

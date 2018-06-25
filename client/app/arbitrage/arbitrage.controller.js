@@ -65,7 +65,7 @@
     binanceBTCUSDT();
     fetchZebpay();
     fetchBinance();
-    $interval(USDtoINR, 3600);
+    $interval(USDtoINR, 3600000);
     $interval(binanceBTCUSDT, 5000);
     $interval(fetchZebpay, 7000);
     $interval(fetchBinance, 5000);
