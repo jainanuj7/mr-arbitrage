@@ -8,7 +8,7 @@
     console.log('arbitrageCtrl');
     $scope.zebpayBuyRates = new Object();
     $scope.zebpaySellRates = new Object();
-    
+
     $scope.binanceBuyRates = new Object();
     $scope.binanceSellRates = new Object();
 
@@ -65,10 +65,11 @@
     binanceBTCUSDT();
     fetchZebpay();
     fetchBinance();
-    $interval(USDtoINR, 3600000);
+    $interval(USDtoINR, 3600);
     $interval(binanceBTCUSDT, 5000);
     $interval(fetchZebpay, 5000);
     $interval(fetchBinance, 5000);
+
     function binanceBTCUSDT() {
       ajaxService.send('APIcaller2', {
           "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=BTCUSDT"
@@ -76,6 +77,8 @@
         .then(function (USDTResults) {
           $scope.binanceBuyRates["BTC"] = USDTResults.data.askPrice;
           $scope.binanceSellRates["BTC"] = USDTResults.data.bidPrice;
+          $scope.binanceBuyRatesINR["BTC"] = $scope.oneUSDtoINR * $scope.binanceBuyRates["BTC"];
+          $scope.binanceSellRatesINR["BTC"] = $scope.oneUSDtoINR * $scope.binanceSellRates["BTC"];
         })
 
     }
@@ -83,8 +86,8 @@
     function fetchZebpay() {
       for (var i = 0; i < zebpayCryptos.length; i++) {
         ajaxService.send('APIcaller1', {
-          "url": "https://www.zebapi.com/api/v1/market/ticker-new/" + zebpayCryptos[i] + "/inr"
-        }, 'POST')
+            "url": "https://www.zebapi.com/api/v1/market/ticker-new/" + zebpayCryptos[i] + "/inr"
+          }, 'POST')
           .then(function (zebpayResults) {
             var name = zebpayResults.data.virtualCurrency;
             $scope.zebpayBuyRates[name] = zebpayResults.data.buy;
@@ -120,6 +123,6 @@
         })
     }
 
-    
+
   }
 })();

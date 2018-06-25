@@ -27,7 +27,6 @@
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="one">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Tab One</h1>
           <div>
             <table>
               <tr>
@@ -37,119 +36,175 @@
                 <th>Sell Rate @Binance</th>
                 <th>Difference</th>
               </tr>
+
               <tr>
                 <td>1</td>
                 <td>
-                  <img src="img/btc.png"> Ether (ETH) </td>
+                  <img src="../../assets/img/btc.png"> Bitcoin (BTC) </td>
+                <td>{{zebpayBuyRates["BTC"] | number:2}} INR</td>
+                <td>{{binanceSellRatesINR["BTC"] | number:2}} INR </td>
+                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+              </tr>
+              
+              <tr>
+                <td>2</td>
+                <td>
+                  <img src="../../assets/img/eth.png"> Ether (ETH) </td>
                 <td>{{zebpayBuyRates["ETH"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["ETH"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
               <tr>
-                <td>2</td>
+                <td>3</td>
                 <td>
-                  <img src="img/btc.png"> BitcoinCash (BCH) </td>
+                  <img src="../../assets/img/bch.png"> BitcoinCash (BCH) </td>
                 <td>{{zebpayBuyRates["BCH"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["BCC"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>3</td>
+                <td>4</td>
                 <td>
-                  <img src="img/btc.png"> Litecoin (LTC) </td>
+                  <img src="../../assets/img/ltc.png"> Litecoin (LTC) </td>
                 <td>{{zebpayBuyRates["LTC"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["LTC"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>5</td>
                 <td>
-                  <img src="img/btc.png"> Ripple (XRP) </td>
+                  <img src="../../assets/img/xrp.png"> Ripple (XRP) </td>
                 <td>{{zebpayBuyRates["XRP"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["XRP"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>5</td>
+                <td>6</td>
                 <td>
-                  <img src="img/btc.png"> EOS (EOS) </td>
+                  <img src="../../assets/img/eos.png"> EOS (EOS) </td>
                 <td>{{zebpayBuyRates["EOS"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["EOS"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>7</td>
                 <td>
-                  <img src="img/btc.png"> OmiseGo (OMG) </td>
+                  <img src="../../assets/img/omg.png"> OmiseGo (OMG) </td>
                 <td>{{zebpayBuyRates["OMG"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["OMG"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>8</td>
                 <td>
-                  <img src="img/btc.png"> Tronix (TRX) </td>
+                  <img src="../../assets/img/trx.png"> Tronix (TRX) </td>
                 <td>{{zebpayBuyRates["TRX"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["TRX"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>9</td>
                 <td>
-                  <img src="img/btc.png"> Golem (GNT) </td>
+                  <img src="../../assets/img/gnt.png"> Golem (GNT) </td>
                 <td>{{zebpayBuyRates["GNT"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["GNT"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>10</td>
                 <td>
-                  <img src="img/btc.png"> 0xProtocol (ZRX) </td>
+                  <img src="../../assets/img/zrx.png"> 0xProtocol (ZRX) </td>
                 <td>{{zebpayBuyRates["ZRX"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["ZRX"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>11</td>
                 <td>
-                  <img src="img/btc.png"> Augur (REP) </td>
+                  <img src="../../assets/img/rep.png"> Augur (REP) </td>
                 <td>{{zebpayBuyRates["REP"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["REP"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>12</td>
                 <td>
-                  <img src="img/btc.png"> Kyber Network (KNC) </td>
+                  <img src="../../assets/img/knc.png"> Kyber Network (KNC) </td>
                 <td>{{zebpayBuyRates["KNC"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["KNC"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>13</td>
                 <td>
-                  <img src="img/btc.png"> Basic Attention Token (BAT) </td>
+                  <img src="../../assets/img/bat.png"> Basic Attention Token (BAT) </td>
                 <td>{{zebpayBuyRates["BAT"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["BAT"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
               <tr>
-                <td>4</td>
+                <td>14</td>
                 <td>
-                  <img src="img/btc.png"> VeChain (VEN) </td>
+                  <img src="../../assets/img/ven.png"> VeChain (VEN) </td>
                 <td>{{zebpayBuyRates["VEN"] | number:2}} INR</td>
                 <td>{{binanceSellRatesINR["VEN"] | number:2}} INR </td>
+                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+              </tr>
+
+              <tr>
+                <td>15</td>
+                <td>
+                  <img src="../../assets/img/ae.png"> Aeternity (AE) </td>
+                <td>{{zebpayBuyRates["AE"] | number:2}} INR</td>
+                <td>{{binanceSellRatesINR["AE"] | number:2}} INR </td>
+                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+              </tr>
+
+              <tr>
+                <td>16</td>
+                <td>
+                  <img src="../../assets/img/iost.png"> IOSToken (IOST) </td>
+                <td>{{zebpayBuyRates["VEN"] | number:2}} INR</td>
+                <td>{{binanceSellRatesINR["VEN"] | number:2}} INR </td>
+                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+              </tr>
+
+              <tr>
+                <td>17</td>
+                <td>
+                  <img src="../../assets/img/zil.png"> Zilliqa (ZIL) </td>
+                <td>{{zebpayBuyRates["ZIL"] | number:2}} INR</td>
+                <td>{{binanceSellRatesINR["ZIL"] | number:2}} INR </td>
+                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+              </tr>
+
+              <tr>
+                <td>18</td>
+                <td>
+                  <img src="../../assets/img/cmt.png"> Cyber Miles (CMT) </td>
+                <td>{{zebpayBuyRates["CMT"] | number:2}} INR</td>
+                <td>{{binanceSellRatesINR["CMT"] | number:2}} INR </td>
+                <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+              </tr>
+
+
+              <tr>
+                <td>19</td>
+                <td>
+                  <img src="../../assets/img/ncash.png"> NCash (NCASH) </td>
+                <td>{{zebpayBuyRates["NCASH"] | number:2}} INR</td>
+                <td>{{binanceSellRatesINR["NCASH"] | number:2}} INR </td>
                 <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
               </tr>
 
@@ -161,7 +216,189 @@
       </md-tab>
       <md-tab label="two">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Tab Two</h1>
+                <div>
+                        <table>
+                          <tr>
+                            <th>#</th>
+                            <th>Crypto Currency</th>
+                            <th>Buy Rate @Binance</th>
+                            <th>Sell Rate @Zebpay</th>
+                            <th>Difference</th>
+                          </tr>
+                
+                          <tr>
+                            <td>1</td>
+                            <td>
+                              <img src="../../assets/img/btc.png"> Bitcoin (BTC) </td>
+                            <td>{{binanceBuyRatesINR["BTC"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["BTC"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                          
+                          <tr>
+                            <td>2</td>
+                            <td>
+                              <img src="../../assets/img/eth.png"> Ether (ETH) </td>
+                            <td>{{binanceBuyRatesINR["ETH"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["ETH"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>
+                              <img src="../../assets/img/bch.png"> BitcoinCash (BCH) </td>
+                            <td>{{binanceBuyRatesINR["BCC"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["BCH"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>4</td>
+                            <td>
+                              <img src="../../assets/img/ltc.png"> Litecoin (LTC) </td>
+                            <td>{{binanceBuyRatesINR["LTC"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["LTC"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>5</td>
+                            <td>
+                              <img src="../../assets/img/xrp.png"> Ripple (XRP) </td>
+                            <td>{{binanceBuyRatesINR["XRP"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["XRP"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>6</td>
+                            <td>
+                              <img src="../../assets/img/eos.png"> EOS (EOS) </td>
+                            <td>{{binanceBuyRatesINR["EOS"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["EOS"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>7</td>
+                            <td>
+                              <img src="../../assets/img/omg.png"> OmiseGo (OMG) </td>
+                            <td>{{binanceBuyRatesINR["OMG"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["OMG"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>8</td>
+                            <td>
+                              <img src="../../assets/img/trx.png"> Tronix (TRX) </td>
+                            <td>{{binanceBuyRatesINR["TRX"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["TRX"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>9</td>
+                            <td>
+                              <img src="../../assets/img/gnt.png"> Golem (GNT) </td>
+                            <td>{{binanceBuyRatesINR["GNT"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["GNT"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>10</td>
+                            <td>
+                              <img src="../../assets/img/zrx.png"> 0xProtocol (ZRX) </td>
+                            <td>{{binanceBuyRatesINR["ZRX"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["ZRX"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>11</td>
+                            <td>
+                              <img src="../../assets/img/rep.png"> Augur (REP) </td>
+                            <td>{{binanceBuyRatesINR["REP"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["REP"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>12</td>
+                            <td>
+                              <img src="../../assets/img/knc.png"> Kyber Network (KNC) </td>
+                            <td>{{binanceBuyRatesINR["KNC"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["KNC"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>13</td>
+                            <td>
+                              <img src="../../assets/img/bat.png"> Basic Attention Token (BAT) </td>
+                            <td>{{binanceBuyRatesINR["BAT"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["BAT"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>14</td>
+                            <td>
+                              <img src="../../assets/img/ven.png"> VeChain (VEN) </td>
+                            <td>{{binanceBuyRatesINR["VEN"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["VEN"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>15</td>
+                            <td>
+                              <img src="../../assets/img/ae.png"> Aeternity (AE) </td>
+                            <td>{{binanceBuyRatesINR["AE"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["AE"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>16</td>
+                            <td>
+                              <img src="../../assets/img/iost.png"> IOSToken (IOST) </td>
+                            <td>{{binanceBuyRatesINR["VEN"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["VEN"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>17</td>
+                            <td>
+                              <img src="../../assets/img/zil.png"> Zilliqa (ZIL) </td>
+                            <td>{{binanceBuyRatesINR["ZIL"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["ZIL"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                          <tr>
+                            <td>18</td>
+                            <td>
+                              <img src="../../assets/img/cmt.png"> Cyber Miles (CMT) </td>
+                            <td>{{binanceBuyRatesINR["CMT"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["CMT"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                
+                          <tr>
+                            <td>19</td>
+                            <td>
+                              <img src="../../assets/img/ncash.png"> NCash (NCASH) </td>
+                            <td>{{binanceBuyRatesINR["NCASH"] | number:2}} INR</td>
+                            <td>{{zebpaySellRates["NCASH"] | number:2}} INR </td>
+                            <td>{{zebpay_buy_inr - coindesk_buy_inr}} INR </td>
+                          </tr>
+                
+                        </table>
+                      </div>
 
         </md-content>
       </md-tab>
