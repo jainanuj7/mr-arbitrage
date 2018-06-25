@@ -6,12 +6,18 @@
   function arbitrageCtrl($scope, $http, ajaxService) {
     var self = this;
     console.log('arbitrageCtrl');
-    var zebpayBuyRates = new Object();
-    var zebpaySellRates = new Object();
+    $scope.zebpayBuyRates = new Object();
+    $scope.zebpaySellRates = new Object();
     
-    var binanceBuyRates = new Object();
-    var binanceSellRates = new Object();
-    
+    $scope.binanceBuyRates = new Object();
+    $scope.binanceSellRates = new Object();
+
+    $scope.binanceBuyRatesINR = new Object();
+    $scope.binanceSellRatesINR = new Object();
+
+    $scope.oneUSDtoINR = 67;
+
+
     var zebpayCryptos = [
       "BTC",
       "ETH",
@@ -55,18 +61,18 @@
       "NCASH"
     ];
 
-    //fetchZebpay();
-    //fetchBinance();
-    //USDtoINR();
+    USDtoINR();
     binanceBTCUSDT();
+    fetchZebpay();
+    fetchBinance();
 
     function binanceBTCUSDT() {
       ajaxService.send('APIcaller', {
           "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=BTCUSDT"
         }, 'POST')
         .then(function (USDTResults) {
-          binanceBuyRates["BTC"] = USDTResults.data.askPrice;
-          binanceSellRates["BTC"] = USDTResults.data.bidPrice;
+          $scope.binanceBuyRates["BTC"] = USDTResults.data.askPrice;
+          $scope.binanceSellRates["BTC"] = USDTResults.data.bidPrice;
           console.log($scope.BTCUSDT);
         })
 
@@ -77,10 +83,8 @@
         $http.get("https://www.zebapi.com/api/v1/market/ticker-new/" + zebpayCryptos[i] + "/inr")
           .then(function (zebpayResults) {
             var name = zebpayResults.data.virtualCurrency;
-            zebpayBuyRates[name] = zebpayResults.data.buy;
-            zebpaySellRates[name] = zebpayResults.data.sell;
-            console.log(zebpayBuyRates);
-            console.log(zebpaySellRates);
+            $scope.zebpayBuyRates[name] = zebpayResults.data.buy;
+            $scope.zebpaySellRates[name] = zebpayResults.data.sell;
           })
       }
     }
@@ -94,10 +98,10 @@
           .then(function (binanceResults) {
             var name = binanceResults.data.symbol;
             name = name.replace("BTC", "");
-            binanceBuyRates[name] = binanceResults.data.askPrice;
-            binanceSellRates[name] = binanceResults.data.bidPrice;
-            console.log(binanceBuyRates);
-            console.log(binanceSellRates);
+            $scope.binanceBuyRates[name] = binanceResults.data.askPrice;
+            $scope.binanceSellRates[name] = binanceResults.data.bidPrice;
+            $scope.binanceBuyRatesINR[name] = binanceResults.data.askPrice * $scope.oneUSDtoINR * $scope.binanceBuyRates["BTC"];
+            $scope.binanceSellRatesINR[name] = binanceResults.data.bidPrice * $scope.oneUSDtoINR * $scope.binanceSellRates["BTC"];
           })
       }
     }
