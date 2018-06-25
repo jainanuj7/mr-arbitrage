@@ -61,6 +61,10 @@
       "NCASH"
     ];
 
+    $scope.determinateValue = 0;
+    $scope.determinateFlag = false;
+
+
     USDtoINR();
     binanceBTCUSDT();
     fetchZebpay();
@@ -69,6 +73,27 @@
     $interval(binanceBTCUSDT, 5000);
     $interval(fetchZebpay, 7000);
     $interval(fetchBinance, 5000);
+    $interval(calcProgress, 1000);
+  function calcProgress () {
+    var count=0;
+    for(var i=0 ; i<zebpayCryptos.length ; i++) {
+      if($scope.zebpayBuyRates[zebpayCryptos[i]]!=null)
+        count++;
+      if($scope.zebpaySellRates[zebpayCryptos[i]]!=null)
+        count++;
+    }
+    for(var i=0 ; i<binanceCryptos.length ; i++) {
+      if($scope.binanceBuyRatesINR[binanceCryptos[i]]!=null)
+        count++;
+      if($scope.binanceSellRatesINR[binanceCryptos[i]]!=null)
+        count++;
+    }
+
+    //buy rate and sell rate of BTC for binance excluded
+    if(count==74)
+      $scope.determinateFlag = true;
+    $scope.determinateValue = (count/74) * 100;
+  }
 
     function binanceBTCUSDT() {
       ajaxService.send('APIcaller2', {
@@ -119,7 +144,6 @@
         }, 'POST')
         .then(function (USDtoINRResults) {
           $scope.oneUSDtoINR = USDtoINRResults.data.results.USD_INR.val;
-          console.log($scope.oneUSDtoINR);
         })
     }
 
