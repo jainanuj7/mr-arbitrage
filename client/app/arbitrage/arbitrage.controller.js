@@ -123,6 +123,13 @@
         })
     }
 
+    $scope.copyToClipboard = function () {
+      var copyText = document.getElementById("address");
+      copyText.select();
+      document.execCommand("copy");
+      alert("Copied the text: " + copyText.value);
+    }
+
 
   }
 })();

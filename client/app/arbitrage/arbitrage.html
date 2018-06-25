@@ -19,6 +19,13 @@
       background-color: #f5f5f5
     }
 
+    #address{
+        width: 400px;
+        text-align: right;
+        border: none;
+        background: transparent;
+    }
+
   </style>
 </head>
 
@@ -367,7 +374,7 @@
                 <td>{{binanceBuyRatesINR["IOST"] | number:2}} INR</td>
                 <td>{{zebpaySellRates["IOST"] | number:2}} INR </td>
                 <td>{{(zebpaySellRates["IOST"] - binanceBuyRatesINR["IOST"])/binanceBuyRatesINR["IOST"] * 100 | number:2}} %
-                  </td>
+                </td>
               </tr>
 
               <tr>
@@ -424,6 +431,29 @@
           </md-card-content>
         </md-card>
       </md-tab>
+
+      <md-tab label="About Me">
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">About the Developer</span>
+              <span class="md-subhead">My name is Anuj. I'm a full stack developer from Pune, India. I believe that blockchain is one of the most disruptive technology of this decade. <br>
+                You can check my <a href="https://github.com/jainanuj7?tab=repositories"> Github </a> profile for more projects.<br> HODL till the 🚀
+                If you liked my project you can wish donate some satoshis.</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+                  <img src="../../assets/img/anuj.jpg"/>
+              </div>
+            </md-card-title-media>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <input type="text" value="1DVsEsDkhUhXusszamUScuvVjTYui8Qt5T" id="address" readonly>
+            <md-button ng-click="copyToClipboard()" class="md-raised md-warn"> COPY BTC ADDRESS</md-button>
+          </md-card-actions>
+        </md-card>
+      </md-tab>
+
     </md-tabs>
   </md-content>
 </div>
