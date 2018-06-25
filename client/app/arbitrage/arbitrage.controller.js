@@ -3,7 +3,7 @@
     .module('MrArbitrage')
     .controller('arbitrageCtrl', arbitrageCtrl)
 
-  function arbitrageCtrl($scope, $http, ajaxService) {
+  function arbitrageCtrl($scope, $http, $interval, ajaxService) {
     var self = this;
     console.log('arbitrageCtrl');
     $scope.zebpayBuyRates = new Object();
@@ -65,22 +65,26 @@
     binanceBTCUSDT();
     fetchZebpay();
     fetchBinance();
-
+    $interval(USDtoINR, 3600000);
+    $interval(binanceBTCUSDT, 5000);
+    $interval(fetchZebpay, 5000);
+    $interval(fetchBinance, 5000);
     function binanceBTCUSDT() {
-      ajaxService.send('APIcaller', {
+      ajaxService.send('APIcaller2', {
           "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=BTCUSDT"
         }, 'POST')
         .then(function (USDTResults) {
           $scope.binanceBuyRates["BTC"] = USDTResults.data.askPrice;
           $scope.binanceSellRates["BTC"] = USDTResults.data.bidPrice;
-          console.log($scope.BTCUSDT);
         })
 
     }
     //Fetch Zebpay price
     function fetchZebpay() {
       for (var i = 0; i < zebpayCryptos.length; i++) {
-        $http.get("https://www.zebapi.com/api/v1/market/ticker-new/" + zebpayCryptos[i] + "/inr")
+        ajaxService.send('APIcaller1', {
+          "url": "https://www.zebapi.com/api/v1/market/ticker-new/" + zebpayCryptos[i] + "/inr"
+        }, 'POST')
           .then(function (zebpayResults) {
             var name = zebpayResults.data.virtualCurrency;
             $scope.zebpayBuyRates[name] = zebpayResults.data.buy;
@@ -92,7 +96,7 @@
     //Fetch Binance price
     function fetchBinance() {
       for (var i = 0; i < binanceCryptos.length; i++) {
-        ajaxService.send('APIcaller', {
+        ajaxService.send('APIcaller2', {
             "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=" + binanceCryptos[i] + "BTC"
           }, 'POST')
           .then(function (binanceResults) {
@@ -107,7 +111,7 @@
     }
 
     function USDtoINR() {
-      ajaxService.send('APIcaller', {
+      ajaxService.send('APIcaller2', {
           "url": "https://free.currencyconverterapi.com/api/v5/convert?q=USD_INR"
         }, 'POST')
         .then(function (USDtoINRResults) {
@@ -116,6 +120,6 @@
         })
     }
 
-    //$interval(USDtoINR, 3600000);
+    
   }
 })();
