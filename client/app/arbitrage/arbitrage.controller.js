@@ -98,6 +98,7 @@
     $interval(fetchBinance, 5000);
     $interval(calcProgress, 1000);
   function calcProgress () {
+    var determinantLength = (self.zebpayCryptos.length * 4) - 2;
     var count=0;
     for(var i=0 ; i<self.zebpayCryptos.length ; i++) {
       if($scope.zebpayBuyRates[self.zebpayCryptos[i]]!=null)
@@ -113,9 +114,9 @@
     }
 
     //buy rate and sell rate of BTC for binance excluded
-    if(count==74)
+    if(count>=determinantLength)
       $scope.determinateFlag = true;
-    $scope.determinateValue = (count/74) * 100;
+    $scope.determinateValue = (count/determinantLength) * 100;
   }
 
     function binanceBTCUSDT() {

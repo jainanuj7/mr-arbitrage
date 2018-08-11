@@ -1,103 +1,102 @@
 <div ng-cloak>
-        <md-progress-linear md-mode="determinate" value="{{determinateValue}}"  ng-disabled="determinateFlag"></md-progress-linear>
-  <md-content>
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="Zebpay -> Binance">
-        <md-content class="md-padding">
-          <div>
-            <table>
-              <tr>
-                <th>#</th>
-                <th>Crypto Currency</th>
-                <th>Buy Rate @Zebpay</th>
-                <th>Sell Rate @Binance</th>
-                <th>Arbitrage</th>
-              </tr>
+  <md-progress-linear md-mode="determinate" value="{{determinateValue}}" ng-disabled="determinateFlag"></md-progress-linear>
 
-              <tr ng-repeat="crypto in arbitrage.masterCryptoList track by $index">
-                <td>{{$index + 1}}</td>
-                <td>
-                  <img src={{crypto[2]}}> {{crypto[1]}} </td>
-                <td>{{zebpayBuyRates[crypto[0]] | number:2}} INR</td>
-                <td>{{binanceSellRatesINR[crypto[1]] | number:2}} INR </td>
-                <td>{{(binanceSellRatesINR[crypto[1]] - zebpayBuyRates[crypto[0]])/zebpayBuyRates[crypto[0]] * 100 | number:2}} % </td>
-              </tr>
-            </table>
-          </div>
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="Zebpay -> Binance">
+      <md-content class="md-padding">
+        <div>
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Crypto Currency</th>
+              <th>Buy Rate @Zebpay</th>
+              <th>Sell Rate @Binance</th>
+              <th>Arbitrage</th>
+            </tr>
+
+            <tr ng-repeat="crypto in arbitrage.masterCryptoList track by $index">
+              <td>{{$index + 1}}</td>
+              <td>
+                <img src={{crypto[2]}}> {{crypto[1]}} </td>
+              <td>{{zebpayBuyRates[crypto[0]] | number:2}} INR</td>
+              <td>{{binanceSellRatesINR[crypto[1]] | number:2}} INR </td>
+              <td>{{(binanceSellRatesINR[crypto[1]] - zebpayBuyRates[crypto[0]])/zebpayBuyRates[crypto[0]] * 100 | number:2}}
+                % </td>
+            </tr>
+          </table>
+        </div>
+      </md-content>
+    </md-tab>
+    <md-tab label="Binance -> Zebpay">
+      <md-content class="md-padding">
+        <div>
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Crypto Currency</th>
+              <th>Buy Rate @Binance</th>
+              <th>Sell Rate @Zebpay</th>
+              <th>Arbitrage</th>
+            </tr>
+            <tr ng-repeat="crypto in arbitrage.masterCryptoList track by $index">
+              <td>{{$index + 1}}</td>
+              <td>
+                <img src={{crypto[2]}}> {{crypto[1]}} </td>
+              <td>{{binanceBuyRatesINR[crypto[1]] | number:2}} INR</td>
+              <td>{{zebpaySellRates[crypto[0]] | number:2}} INR </td>
+              <td>{{(zebpaySellRates[crypto[0]] - binanceBuyRatesINR[crypto[1]])/binanceBuyRatesINR[crypto[1]] * 100 | number:2}}
+                % </td>
+            </tr>
+          </table>
+        </div>
 
 
-        </md-content>
-      </md-tab>
-      <md-tab label="Binance -> Zebpay">
-        <md-content class="md-padding">
-          <div>
-            <table>
-              <tr>
-                <th>#</th>
-                <th>Crypto Currency</th>
-                <th>Buy Rate @Binance</th>
-                <th>Sell Rate @Zebpay</th>
-                <th>Arbitrage</th>
-              </tr>
-              <tr ng-repeat="crypto in arbitrage.masterCryptoList track by $index">
-                  <td>{{$index + 1}}</td>
-                  <td>
-                    <img src={{crypto[2]}}> {{crypto[1]}} </td>
-                  <td>{{binanceBuyRatesINR[crypto[1]] | number:2}} INR</td>
-                  <td>{{zebpaySellRates[crypto[0]] | number:2}} INR </td>
-                  <td>{{(zebpaySellRates[crypto[0]] - binanceBuyRatesINR[crypto[1]])/binanceBuyRatesINR[crypto[1]] * 100 | number:2}} % </td>
-                </tr>
-            </table>
-          </div>
+      </md-content>
+    </md-tab>
+    <md-tab label="What is Arbitrage?">
+      <md-card>
+        <md-card-content>
+          <p>In a nutshell, arbitrage (when it comes to trading) is a strategy to take advantage of differences in prices across
+            markets to make profit. We can take roses as a simple example — for special events such as Valentine’s Day, usually
+            emotionless people like myself forget to purchase roses for others. By the time we’re at the doorstep, we realize
+            that we don’t have roses — luckily, there’s someone standing on the corner ready to fully take advantage of our
+            desperation.</p>
+          <b>
+            <p>A dozen roses for $50. Ouch.</p>
+          </b>
+          <p>But apart from realizing to plan ahead next time, the bigger lesson here is how the rose seller took advantage
+            of a situation to profit. He or she probably just went to the supermarket a week or month prior to order tons
+            of roses very cheap, to be delivered on the night before Valentine’s Day. He saw an opportunity to buy roses
+            cheap somewhere and sell somewhere else for more expensive, which landed him profit. This is arbitrage.</p>
+          <p>Except in the trading world, there is no waiting — arbitrage opportunities come and go in the blink of an eye.
+            Sometimes selling and buying must even occur simultaneously.</p>
+        </md-card-content>
+      </md-card>
+    </md-tab>
 
-
-        </md-content>
-      </md-tab>
-      <md-tab label="What is Arbitrage?">
-        <md-card>
-          <md-card-content>
-            <p>In a nutshell, arbitrage (when it comes to trading) is a strategy to take advantage of differences in prices
-              across markets to make profit. We can take roses as a simple example — for special events such as Valentine’s
-              Day, usually emotionless people like myself forget to purchase roses for others. By the time we’re at the doorstep,
-              we realize that we don’t have roses — luckily, there’s someone standing on the corner ready to fully take advantage
-              of our desperation.</p>
-            <b>
-              <p>A dozen roses for $50. Ouch.</p>
-            </b>
-            <p>But apart from realizing to plan ahead next time, the bigger lesson here is how the rose seller took advantage
-              of a situation to profit. He or she probably just went to the supermarket a week or month prior to order tons
-              of roses very cheap, to be delivered on the night before Valentine’s Day. He saw an opportunity to buy roses
-              cheap somewhere and sell somewhere else for more expensive, which landed him profit. This is arbitrage.</p>
-            <p>Except in the trading world, there is no waiting — arbitrage opportunities come and go in the blink of an eye.
-              Sometimes selling and buying must even occur simultaneously.</p>
-          </md-card-content>
-        </md-card>
-      </md-tab>
-
-      <md-tab label="About Me">
-        <md-card>
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">About the Developer</span>
-              <span class="md-subhead">My name is Anuj. I'm a full stack developer from Pune, India. I believe that blockchain is one of the most
-                disruptive technology of this decade.
-                <br> You can check my
-                <a href="https://github.com/jainanuj7?tab=repositories"> Github </a> profile for more projects.
-                <br> HODL till the 🚀
-                <br> If you liked my project you can thank me by donating me some satoshis.</span>
-            </md-card-title-text>
-            <md-card-title-media>
-              <div class="md-media-lg card-media">
-                <img src="../../assets/img/anuj.jpg" />
-              </div>
-            </md-card-title-media>
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="end center">
-            <input type="text" value="1DVsEsDkhUhXusszamUScuvVjTYui8Qt5T" id="address" readonly>
-            <md-button ng-click="copyToClipboard()" class="md-raised md-warn"> COPY BTC ADDRESS</md-button>
-          </md-card-actions>
-        </md-card>
-      </md-tab>
-    </md-tabs>
-  </md-content>
+    <md-tab label="About Me">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">About the Developer</span>
+            <span class="md-subhead">My name is Anuj. I'm a full stack developer from Pune, India. I believe that blockchain is one of the most disruptive
+              technology of this decade.
+              <br> You can check my
+              <a href="https://github.com/jainanuj7?tab=repositories"> Github </a> profile for more projects.
+              <br> HODL till the 🚀
+              <br> If you liked my project you can thank me by donating me some satoshis.</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img src="../../assets/img/anuj.jpg" />
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <input type="text" value="1DVsEsDkhUhXusszamUScuvVjTYui8Qt5T" id="address" readonly>
+          <md-button ng-click="copyToClipboard()" class="md-raised md-warn"> COPY BTC ADDRESS</md-button>
+        </md-card-actions>
+      </md-card>
+    </md-tab>
+  </md-tabs>
 </div>
