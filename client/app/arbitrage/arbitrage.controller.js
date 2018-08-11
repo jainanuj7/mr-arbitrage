@@ -17,8 +17,29 @@
 
     $scope.oneUSDtoINR = 67;
 
+    self.masterCryptoList = [
+    ["BTC", "BTC", "../../assets/img/btc.png"],
+    ["ETH", "ETH", "../../assets/img/eth.png"],
+    ["BCH", "BCC", "../../assets/img/bch.png"],
+    ["LTC", "LTC", "../../assets/img/ltc.png"],
+    ["XRP", "XRP", "../../assets/img/xrp.png"],
+    ["EOS", "EOS", "../../assets/img/eos.png"],
+    ["OMG", "OMG", "../../assets/img/omg.png"],
+    ["TRX", "TRX", "../../assets/img/trx.png"],
+    ["GNT", "GNT", "../../assets/img/gnt.png"],
+    ["ZRX", "ZRX", "../../assets/img/zrx.png"],
+    ["REP", "REP", "../../assets/img/rep.png"],
+    ["KNC", "KNC", "../../assets/img/knc.png"],
+    ["BAT", "BAT", "../../assets/img/bat.png"],
+    ["AE", "AE", "../../assets/img/ae.png"],
+    ["IOST", "IOST", "../../assets/img/iost.png"],
+    ["ZIL", "ZIL", "../../assets/img/zil.png"],
+    ["CMT", "CMT", "../../assets/img/cmt.png"],
+    ["NCASH", "NCASH", "../../assets/img/ncash.png"],
+    ["TUSD", "TUSD", "../../assets/img/tusd.png"]
 
-    var zebpayCryptos = [
+    ] ;
+    self.zebpayCryptos = [
       "BTC",
       "ETH",
       "BCH",
@@ -37,7 +58,8 @@
       "IOST",
       "ZIL",
       "CMT",
-      "NCASH"
+      "NCASH",
+      "TUSD"
     ];
 
     var binanceCryptos = [
@@ -58,7 +80,8 @@
       "IOST",
       "ZIL",
       "CMT",
-      "NCASH"
+      "NCASH",
+      "TUSD"
     ];
 
     $scope.determinateValue = 0;
@@ -76,10 +99,10 @@
     $interval(calcProgress, 1000);
   function calcProgress () {
     var count=0;
-    for(var i=0 ; i<zebpayCryptos.length ; i++) {
-      if($scope.zebpayBuyRates[zebpayCryptos[i]]!=null)
+    for(var i=0 ; i<self.zebpayCryptos.length ; i++) {
+      if($scope.zebpayBuyRates[self.zebpayCryptos[i]]!=null)
         count++;
-      if($scope.zebpaySellRates[zebpayCryptos[i]]!=null)
+      if($scope.zebpaySellRates[self.zebpayCryptos[i]]!=null)
         count++;
     }
     for(var i=0 ; i<binanceCryptos.length ; i++) {
@@ -109,9 +132,9 @@
     }
     //Fetch Zebpay price
     function fetchZebpay() {
-      for (var i = 0; i < zebpayCryptos.length; i++) {
+      for (var i = 0; i < self.zebpayCryptos.length; i++) {
         ajaxService.send('APIcaller1', {
-            "url": "https://www.zebapi.com/api/v1/market/ticker-new/" + zebpayCryptos[i] + "/inr"
+            "url": "https://www.zebapi.com/api/v1/market/ticker-new/" + self.zebpayCryptos[i] + "/inr"
           }, 'POST')
           .then(function (zebpayResults) {
             var name = zebpayResults.data.virtualCurrency;

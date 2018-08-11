@@ -9,7 +9,8 @@
           .state('arbitrage', {
             url: '/arbitrage',
             templateUrl: 'app/arbitrage/arbitrage.html',
-            controller: 'arbitrageCtrl'
+            controller: 'arbitrageCtrl',
+            controllerAs: 'arbitrage'
           })
       });
 
