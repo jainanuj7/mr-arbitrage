@@ -98,7 +98,7 @@
     $interval(fetchBinance, 5000);
     $interval(calcProgress, 1000);
   function calcProgress () {
-    var determinantLength = (self.zebpayCryptos.length * 4) - 2;
+    var determinantLength = (self.zebpayCryptos.length * 4) - 4;
     var count=0;
     for(var i=0 ; i<self.zebpayCryptos.length ; i++) {
       if($scope.zebpayBuyRates[self.zebpayCryptos[i]]!=null)
