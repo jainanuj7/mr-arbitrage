@@ -96,6 +96,7 @@
     $interval(binanceBTCUSDT, 5000);
     $interval(fetchZebpay, 7000);
     $interval(fetchBinance, 5000);
+    $interval(fetchCoindelta, 5000);
     $interval(calcProgress, 1000);
   function calcProgress () {
     var determinantLength = ((self.zebpayCryptos.length-1) * 4) - 4;
@@ -143,6 +144,21 @@
             $scope.zebpaySellRates[name] = zebpayResults.data.sell;
           })
       }
+    }
+
+    function fetchCoindelta() {
+      ajaxService.send('APIcaller1', {
+        "url": "https://api.coindelta.com/api/v1/public/getticker/"
+      }, 'POST')
+      .then(function (coindeltaResults) {
+        for(var i=0 ; i<coindeltaResults.length ; i++) {
+          var name = coindeltaResults[i].MarketName.split('-')[0];
+          $scope.coinDeltaBuyRates[name] = coindeltaResults[i].Ask;
+          $scope.coinDeltaSellRates[name] = coindeltaResults[i].Bid;
+        }
+        console.log(coinDeltaBuyRates);
+        console.log(coinDeltaSellRates);
+      })
     }
 
     //Fetch Binance price
