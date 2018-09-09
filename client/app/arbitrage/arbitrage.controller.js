@@ -159,8 +159,8 @@
           $scope.coinDeltaBuyRates[name] = coindeltaResults[i].Ask;
           $scope.coinDeltaSellRates[name] = coindeltaResults[i].Bid;
         }
-        console.log(coinDeltaBuyRates);
-        console.log(coinDeltaSellRates);
+        console.log($scope.coinDeltaBuyRates);
+        console.log($scope.coinDeltaSellRates);
       })
     }
 
