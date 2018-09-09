@@ -9,6 +9,9 @@
     $scope.zebpayBuyRates = new Object();
     $scope.zebpaySellRates = new Object();
 
+    $scope.coinDeltaBuyRates = new Object();
+    $scope.coinDeltaSellRates = new Object();
+
     $scope.binanceBuyRates = new Object();
     $scope.binanceSellRates = new Object();
 
