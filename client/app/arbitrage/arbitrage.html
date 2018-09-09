@@ -14,7 +14,7 @@
               <th>Arbitrage</th>
             </tr>
 
-            <tr ng-repeat="crypto in arbitrage.masterCryptoList track by $index">
+            <tr ng-repeat="crypto in arbitrage.zebpayBinanceMap track by $index">
               <td>{{$index + 1}}</td>
               <td>
                 <img src={{crypto[2]}}> {{crypto[1]}} </td>
@@ -38,13 +38,65 @@
               <th>Sell Rate @Zebpay</th>
               <th>Arbitrage</th>
             </tr>
-            <tr ng-repeat="crypto in arbitrage.masterCryptoList track by $index">
+            <tr ng-repeat="crypto in arbitrage.zebpayBinanceMap track by $index">
               <td>{{$index + 1}}</td>
               <td>
                 <img src={{crypto[2]}}> {{crypto[1]}} </td>
               <td>{{binanceBuyRatesINR[crypto[1]] | number:2}} INR</td>
               <td>{{zebpaySellRates[crypto[0]] | number:2}} INR </td>
               <td>{{(zebpaySellRates[crypto[0]] - binanceBuyRatesINR[crypto[1]])/binanceBuyRatesINR[crypto[1]] * 100 | number:2}}
+                % </td>
+            </tr>
+          </table>
+        </div>
+
+
+      </md-content>
+    </md-tab>
+
+    <md-tab label="Coindelta -> Binance">
+      <md-content class="md-padding">
+        <div>
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Crypto Currency</th>
+              <th>Buy Rate @Coindelta</th>
+              <th>Sell Rate @Binance</th>
+              <th>Arbitrage</th>
+            </tr>
+
+            <tr ng-repeat="crypto in arbitrage.coindeltaBinanceMap track by $index">
+              <td>{{$index + 1}}</td>
+              <td>
+                <img src={{crypto[2]}}> {{crypto[1]}} </td>
+              <td>{{coindeltaBuyRates[crypto[0]] | number:2}} INR</td>
+              <td>{{binanceSellRatesINR[crypto[1]] | number:2}} INR </td>
+              <td>{{(binanceSellRatesINR[crypto[1]] - coindeltaBuyRates[crypto[0]])/coindeltaBuyRates[crypto[0]] * 100 | number:2}}
+                % </td>
+            </tr>
+          </table>
+        </div>
+      </md-content>
+    </md-tab>
+    <md-tab label="Binance -> Coindelta">
+      <md-content class="md-padding">
+        <div>
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Crypto Currency</th>
+              <th>Buy Rate @Binance</th>
+              <th>Sell Rate @Coindelta</th>
+              <th>Arbitrage</th>
+            </tr>
+            <tr ng-repeat="crypto in arbitrage.coindeltaBinanceMap track by $index">
+              <td>{{$index + 1}}</td>
+              <td>
+                <img src={{crypto[2]}}> {{crypto[1]}} </td>
+              <td>{{binanceBuyRatesINR[crypto[1]] | number:2}} INR</td>
+              <td>{{coindeltaSellRates[crypto[0]] | number:2}} INR </td>
+              <td>{{(coindeltaSellRates[crypto[0]] - binanceBuyRatesINR[crypto[1]])/binanceBuyRatesINR[crypto[1]] * 100 | number:2}}
                 % </td>
             </tr>
           </table>

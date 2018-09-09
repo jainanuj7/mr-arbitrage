@@ -9,8 +9,8 @@
     $scope.zebpayBuyRates = new Object();
     $scope.zebpaySellRates = new Object();
 
-    $scope.coinDeltaBuyRates = new Object();
-    $scope.coinDeltaSellRates = new Object();
+    $scope.coindeltaBuyRates = new Object();
+    $scope.coindeltaSellRates = new Object();
 
     $scope.binanceBuyRates = new Object();
     $scope.binanceSellRates = new Object();
@@ -20,29 +20,42 @@
 
     $scope.oneUSDtoINR = 70;
 
-    self.masterCryptoList = [
-    ["BTC", "BTC", "../../assets/img/btc.png"],
-    ["ETH", "ETH", "../../assets/img/eth.png"],
-    ["BCH", "BCC", "../../assets/img/bch.png"],
-    ["LTC", "LTC", "../../assets/img/ltc.png"],
-    ["XRP", "XRP", "../../assets/img/xrp.png"],
-    ["EOS", "EOS", "../../assets/img/eos.png"],
-    ["OMG", "OMG", "../../assets/img/omg.png"],
-    ["TRX", "TRX", "../../assets/img/trx.png"],
-    ["GNT", "GNT", "../../assets/img/gnt.png"],
-    ["ZRX", "ZRX", "../../assets/img/zrx.png"],
-    ["REP", "REP", "../../assets/img/rep.png"],
-    ["KNC", "KNC", "../../assets/img/knc.png"],
-    ["BAT", "BAT", "../../assets/img/bat.png"],
-    ["AE", "AE", "../../assets/img/ae.png"],
-    ["IOST", "IOST", "../../assets/img/iost.png"],
-    ["ZIL", "ZIL", "../../assets/img/zil.png"],
-    ["CMT", "CMT", "../../assets/img/cmt.png"],
-    ["NCASH", "NCASH", "../../assets/img/ncash.png"],
-    ["TUSD", "TUSD", "../../assets/img/tusd.png"]
+    self.zebpayBinanceMap = [
+      ["BTC", "BTC", "../../assets/img/btc.png"],
+      ["ETH", "ETH", "../../assets/img/eth.png"],
+      ["BCH", "BCC", "../../assets/img/bch.png"],
+      ["LTC", "LTC", "../../assets/img/ltc.png"],
+      ["XRP", "XRP", "../../assets/img/xrp.png"],
+      ["EOS", "EOS", "../../assets/img/eos.png"],
+      ["OMG", "OMG", "../../assets/img/omg.png"],
+      ["TRX", "TRX", "../../assets/img/trx.png"],
+      ["GNT", "GNT", "../../assets/img/gnt.png"],
+      ["ZRX", "ZRX", "../../assets/img/zrx.png"],
+      ["REP", "REP", "../../assets/img/rep.png"],
+      ["KNC", "KNC", "../../assets/img/knc.png"],
+      ["BAT", "BAT", "../../assets/img/bat.png"],
+      ["AE", "AE", "../../assets/img/ae.png"],
+      ["IOST", "IOST", "../../assets/img/iost.png"],
+      ["ZIL", "ZIL", "../../assets/img/zil.png"],
+      ["CMT", "CMT", "../../assets/img/cmt.png"],
+      ["NCASH", "NCASH", "../../assets/img/ncash.png"],
+      ["TUSD", "TUSD", "../../assets/img/tusd.png"]
 
-    ] ;
-    self.zebpayCryptos = [
+    ];
+
+    self.coindeltaBinanceMap = [
+      ["BTC", "BTC", "../../assets/img/btc.png"],
+      ["ETH", "ETH", "../../assets/img/eth.png"],
+      ["BCH", "BCC", "../../assets/img/bch.png"],
+      ["LTC", "LTC", "../../assets/img/ltc.png"],
+      ["XRP", "XRP", "../../assets/img/xrp.png"],
+      ["EOS", "EOS", "../../assets/img/eos.png"],
+      ["OMG", "OMG", "../../assets/img/omg.png"],
+      ["TRX", "TRX", "../../assets/img/trx.png"],
+      ["ZRX", "ZRX", "../../assets/img/zrx.png"],
+      ["USDT", "USDT", "../../assets/img/usdt.png"]
+    ];
+    var zebpayCryptos = [
       "BTC",
       "ETH",
       "BCH",
@@ -84,9 +97,21 @@
       "ZIL",
       "CMT",
       "NCASH",
-      "TUSD"
+      "TUSD",
     ];
-
+    
+    var coindeltaCryptos = [
+      "BTC",
+      "ETH",
+      "BCH",
+      "LTC",
+      "XRP",
+      "EOS",
+      "OMG",
+      "TRX",
+      "ZRX",
+      "USDT",
+    ];
     $scope.determinateValue = 0;
     $scope.determinateFlag = false;
 
@@ -101,46 +126,54 @@
     $interval(fetchBinance, 5000);
     $interval(fetchCoindelta, 5000);
     $interval(calcProgress, 1000);
-  function calcProgress () {
-    var determinantLength = ((self.zebpayCryptos.length-1) * 4) - 4;
-    var count=0;
-    for(var i=0 ; i<self.zebpayCryptos.length ; i++) {
-      if($scope.zebpayBuyRates[self.zebpayCryptos[i]]!=null)
-        count++;
-      if($scope.zebpaySellRates[self.zebpayCryptos[i]]!=null)
-        count++;
+    function calcProgress() {
+      var determinantLength = (zebpayCryptos.length + binanceCryptos.length + coindeltaCryptos.length) * 2 - 2; 
+      var count = 0;
+      for (var i = 0; i < zebpayCryptos.length; i++) {
+        if ($scope.zebpayBuyRates[zebpayCryptos[i]] != null)
+          count++;
+        if ($scope.zebpaySellRates[zebpayCryptos[i]] != null)
+          count++;
+      }
+      for (var i = 0; i < binanceCryptos.length; i++) {
+        if ($scope.binanceBuyRatesINR[binanceCryptos[i]] != null)
+          count++;
+        if ($scope.binanceSellRatesINR[binanceCryptos[i]] != null)
+          count++;
+      }
+      for (var i = 0; i < coindeltaCryptos.length; i++) {
+        if ($scope.binanceBuyRatesINR[coindeltaCryptos[i]] != null)
+          count++;
+        if ($scope.binanceSellRatesINR[coindeltaCryptos[i]] != null)
+          count++;
+      }
+      //buy rate and sell rate of BTC for binance excluded
+      if (count >= determinantLength)
+        $scope.determinateFlag = true;
+      $scope.determinateValue = (count / determinantLength) * 100;
     }
-    for(var i=0 ; i<binanceCryptos.length ; i++) {
-      if($scope.binanceBuyRatesINR[binanceCryptos[i]]!=null)
-        count++;
-      if($scope.binanceSellRatesINR[binanceCryptos[i]]!=null)
-        count++;
-    }
-
-    //buy rate and sell rate of BTC for binance excluded
-    if(count>=determinantLength)
-      $scope.determinateFlag = true;
-    $scope.determinateValue = (count/determinantLength) * 100;
-  }
 
     function binanceBTCUSDT() {
       ajaxService.send('APIcaller2', {
-          "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=BTCUSDT"
-        }, 'POST')
+        "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=BTCUSDT"
+      }, 'POST')
         .then(function (USDTResults) {
           $scope.binanceBuyRates["BTC"] = USDTResults.data.askPrice;
           $scope.binanceSellRates["BTC"] = USDTResults.data.bidPrice;
           $scope.binanceBuyRatesINR["BTC"] = $scope.oneUSDtoINR * $scope.binanceBuyRates["BTC"];
           $scope.binanceSellRatesINR["BTC"] = $scope.oneUSDtoINR * $scope.binanceSellRates["BTC"];
+          //assuming USDT is pegged to the US dollar and spread on Binance is almost negligible
+          $scope.binanceBuyRatesINR["USDT"] = $scope.oneUSDtoINR;
+          $scope.binanceSellRatesINR["USDT"] = $scope.oneUSDtoINR;
         })
 
     }
     //Fetch Zebpay price
     function fetchZebpay() {
-      for (var i = 0; i < self.zebpayCryptos.length; i++) {
+      for (var i = 0; i < zebpayCryptos.length; i++) {
         ajaxService.send('APIcaller1', {
-            "url": "https://www.zebapi.com/api/v1/market/ticker-new/" + self.zebpayCryptos[i] + "/inr"
-          }, 'POST')
+          "url": "https://www.zebapi.com/api/v1/market/ticker-new/" + zebpayCryptos[i] + "/inr"
+        }, 'POST')
           .then(function (zebpayResults) {
             var name = zebpayResults.data.virtualCurrency;
             $scope.zebpayBuyRates[name] = zebpayResults.data.buy;
@@ -149,27 +182,29 @@
       }
     }
 
+    //fetch Coindelta Price
     function fetchCoindelta() {
       ajaxService.send('APIcaller1', {
         "url": "https://api.coindelta.com/api/v1/public/getticker/"
       }, 'POST')
-      .then(function (coindeltaResults) {
-        for(var i=0 ; i<coindeltaResults.length ; i++) {
-          var name = coindeltaResults[i].MarketName.split('-')[0];
-          $scope.coinDeltaBuyRates[name] = coindeltaResults[i].Ask;
-          $scope.coinDeltaSellRates[name] = coindeltaResults[i].Bid;
-        }
-        console.log($scope.coinDeltaBuyRates);
-        console.log($scope.coinDeltaSellRates);
-      })
+        .then(function (coindeltaResults) {
+          for (var i = 0; i < coindeltaResults.data.length; i++) {
+            var name = coindeltaResults.data[i].MarketName.split('-')[0].toUpperCase();
+            var unit = coindeltaResults.data[i].MarketName.split('-')[1];
+            if (unit == "inr") {
+              $scope.coindeltaBuyRates[name] = coindeltaResults.data[i].Ask;
+              $scope.coindeltaSellRates[name] = coindeltaResults.data[i].Bid;
+            }
+          }
+        })
     }
 
     //Fetch Binance price
     function fetchBinance() {
       for (var i = 0; i < binanceCryptos.length; i++) {
         ajaxService.send('APIcaller2', {
-            "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=" + binanceCryptos[i] + "BTC"
-          }, 'POST')
+          "url": "https://api.binance.com/api/v3/ticker/bookTicker?symbol=" + binanceCryptos[i] + "BTC"
+        }, 'POST')
           .then(function (binanceResults) {
             var name = binanceResults.data.symbol;
             name = name.replace("BTC", "");
@@ -183,8 +218,8 @@
 
     function USDtoINR() {
       ajaxService.send('APIcaller2', {
-          "url": "https://free.currencyconverterapi.com/api/v5/convert?q=USD_INR"
-        }, 'POST')
+        "url": "https://free.currencyconverterapi.com/api/v5/convert?q=USD_INR"
+      }, 'POST')
         .then(function (USDtoINRResults) {
           $scope.oneUSDtoINR = USDtoINRResults.data.results.USD_INR.val;
         })
