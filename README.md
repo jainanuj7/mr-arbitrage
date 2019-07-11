@@ -1,3 +1,8 @@
+# NOTE : I am not mainintaning this repository anymore because CRYPTO IS DEAD IN INDIA, thanks to Supreme Court of India. :(
+Zebpay APIs are down, Coindelta have suspended its services and whatever arbitrage it is showing might be misleading due to very low trade  volume of leftover btc.
+## If you feel this was a great idea take this idea forward for other Crypto Exchanges that are live with considerable amount of trade volume. Fork it 🍴 and take it forward!
+## PS: I always regret for not taking screenshots when crypto market in India was at its peak, and this app was useful to frequent traders. :(
+
 # Mr Arbitrage
 MrArbitrage makes life easy for a crypto trader. It calculates live two-way arbitrage across Binance and various Indian cryptocurrency exchanges.
 Deployed with ❤️ on Heroku
